@@ -1,15 +1,30 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <ChartComponent :data="loadedData" :width="600" :height="600"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ChartComponent from './components/Chart.vue';
+import * as d3 from 'd3';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ChartComponent
+  },
+  data() {
+    return {
+      loadedData: {}
+    }
+  },
+  mounted() {
+    console.log("App loaded");
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      this.loadedData = await d3.json("./tweets.json");
+    }
   }
 }
 </script>
