@@ -1,19 +1,20 @@
 <template>
   <div class="chart">
-    <h1>{{ msg }}</h1>
-    <svg id="chart-svg" :height="height" :width="width"></svg>
+    <h1>Zuschussverträge</h1>
+    <ChartComponent :height="500" :width="500"></ChartComponent>
   </div>
 </template>
 
 <script>
-import * as c3 from 'c3';
+import ChartComponent from './ChartComponent.vue'
 
 export default {
-  name: 'ChartComponent',
+  name: 'SubsidiesView',
+  components: {
+    ChartComponent
+  },
   props: {
-    data: Object,
-    height: Number,
-    width: Number,
+    title: String
   },
   data() {
     return {
@@ -21,13 +22,7 @@ export default {
     }
   },
   mounted() {
-    console.log("App loaded");
     this.loadedData = this.data;
-  },
-  created() {
-    var chart = c3.generate({
-      
-    });
   }
 }
 </script>
