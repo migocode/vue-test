@@ -7,8 +7,8 @@
     />
     <span id="main-menu">
       <router-link to="/">Home</router-link>
-      <router-link to="/subsidies">Gewerke</router-link>
-      <router-link to="/facilities">Zuschussverträge</router-link>
+      <router-link to="/subsidies">Zuschussverträge</router-link>
+      <router-link to="/facilities">Gewerke</router-link>
     </span>
   </div>
   <div>

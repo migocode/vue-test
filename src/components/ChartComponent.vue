@@ -25,10 +25,10 @@ export default {
     };
   },
   mounted() {
-    c3.generate({
+    var chart = c3.generate({
       bindto: "#chart-container",
       data: {
-        columns: [["data", 91.4]],
+        columns: [['data', 1.5]],
         type: "gauge",
         onclick: function (d, i) {
           console.log("onclick", d, i);
@@ -63,7 +63,31 @@ export default {
       size: {
         height: 200,
       },
+    });    
+
+    setTimeout(function () {
+      chart.load({
+      columns: [['data', 25]]
     });
+    }, 1500);
+
+    setTimeout(function () {
+      chart.load({
+      columns: [['data', 50]]
+    });
+    }, 3000);
+
+    setTimeout(function () {
+      chart.load({
+      columns: [['data', 75]]
+    });
+    }, 4500);
+
+    setTimeout(function () {
+      chart.load({
+      columns: [['data', 99.9]]
+    });
+    }, 6000);
   },
 };
 </script>
